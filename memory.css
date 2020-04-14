@@ -1,0 +1,18 @@
+div#game {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#game>div {
+    font-size: 24px;
+    border: solid 1px black;
+    padding: 4px;
+    margin: 2px;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+}
+
+.hidden {
+    background-color: black;
+}
