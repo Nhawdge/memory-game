@@ -8,11 +8,21 @@ div#game {
     border: solid 1px black;
     padding: 4px;
     margin: 2px;
-    height: 60px;
-    width: 60px;
     text-align: center;
+    flex: fit-content;
+    height: 300px;
+    width: 300px;
+}
+
+#game img {
+    width: 100%;
 }
 
 .hidden {
     background-color: black;
+}
+
+.hidden * {
+    display: none;
+
 }

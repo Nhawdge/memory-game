@@ -7,15 +7,18 @@ document.querySelector('[data-game="start"]').addEventListener("click", StartGam
 function StartGame() {
 
     var numberOfSets = parseInt(document.getElementById("sets").value);
-    var setlist = new Array(numberOfSets + 1).join("x").split("").map(x => MakeSet());
+    //var setlist = new Array(numberOfSets + 1).join("x").split("").map(x => MakeSet());
+
+    var setlist = ["images/hammerhead/capybara.jpg", "images/hammerhead/duck.jpg", "images/hammerhead/giraffe.jpg", "images/hammerhead/lion.jpg", "images/hammerhead/seacucumber.jpg"]
     setlist = RandomizeList([...setlist, ...setlist]);
 
     var game = document.getElementById("game");
     game.innerText = "";
     for (card of setlist) {
         var tile = document.createElement("div");
-        tile.classList.add("hidden");
-        tile.innerText = card;
+        tile.classList.add("hidden", "card");
+        tile.dataset.value = card;
+        tile.innerHTML = `<img src="${card}">`;
         tile.addEventListener("click", CheckCard)
         game.appendChild(tile)
     }
@@ -36,12 +39,10 @@ function CheckCard(event) {
         canMove = false;
         card.classList.toggle("hidden");
 
-
-
         setTimeout(() => {
             cardsVisible.forEach(x => x.classList.toggle("hidden"));
             card.classList.toggle("hidden");
-            if (cardsVisible[0].innerText == card.innerText) {
+            if (cardsVisible[0].dataset.value == card.dataset.value) {
                 card.remove();
                 cardsVisible[0].remove();
                 score += 1;
