@@ -9,7 +9,15 @@ function StartGame() {
     var numberOfSets = parseInt(document.getElementById("sets").value);
     //var setlist = new Array(numberOfSets + 1).join("x").split("").map(x => MakeSet());
 
-    var setlist = ["images/hammerhead/capybara.jpg", "images/hammerhead/duck.jpg", "images/hammerhead/giraffe.jpg", "images/hammerhead/lion.jpg", "images/hammerhead/seacucumber.jpg"]
+    // var setlist = ["images/hammerhead/capybara.jpg", "images/hammerhead/duck.jpg", "images/hammerhead/giraffe.jpg", "images/hammerhead/lion.jpg", "images/hammerhead/seacucumber.jpg"]
+
+    var set = document.querySelector('select').value;
+    var setlist = [];
+    for (i = 1; i <= numberOfSets; i++) {
+        setlist.push(`images/${set}/${i}.png`)
+    }
+
+
     setlist = RandomizeList([...setlist, ...setlist]);
 
     var game = document.getElementById("game");
@@ -66,3 +74,16 @@ function RandomizeList(list) {
     }
     return outList;
 }
+document.querySelector('select').addEventListener("change", function (e) {
+    console.log(this.selectedOptions[0].value, e);
+    switch (this.selectedOptions[0].value) {
+        case "hammerhead":
+        default:
+            document.querySelector('#sets').max = 10
+            break;
+        case 'notebook':
+            document.querySelector('#sets').max = 7
+            break;
+
+    }
+})

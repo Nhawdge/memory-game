@@ -10,9 +10,14 @@
 
 <body>
     <h1>Memory Game</h1>
-    <sup>All images courtesy of <a href="https://www.instagram.com/temporary.worry/">Temporary Worry</a></sup><br>
-    <input type=range id=sets min=1 max=5 step=1 value="5"> <span id="count">5</span>
+    <sup>Hammerhead images courtesy of <a href="https://www.instagram.com/temporary.worry/">Temporary
+            Worry</a></sup><br>
     <br>
+    <select>
+        <option value="hammerhead"> HammerHeads </option>
+        <option value="notebook">Notebook</option>
+    </select>
+    <input type=range id=sets min=1 max=10 step=1 value="5"> <span id="count">5</span>
     <button data-game="start">Start Game</button>
 
     <div id="game"></div>
